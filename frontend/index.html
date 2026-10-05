@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CryptoTrace India — Investigation Platform</title>
+  <link rel="stylesheet" href="/frontend/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="emblem">✦</div>
+      <div>
+        <b>CryptoTrace <span>India</span></b>
+        <small>Blockchain Intelligence & VASP Attribution</small>
+      </div>
+    </div>
+
+    <nav id="nav">
+
+      <button class="active" data-section="dashboard">
+        ⌂ <span>Dashboard</span>
+      </button>
+
+      <button data-section="new">
+        ＋ <span>New Investigation</span>
+      </button>
+
+      <button data-section="graph">
+        ⌘ <span>Transaction Graph</span>
+      </button>
+
+      <button data-section="vasp">
+        ◎ <span>VASP Attribution</span>
+      </button>
+
+      <button data-section="risk">
+        ◉ <span>Risk & Threat Analysis</span>
+      </button>
+
+      <button data-section="peel">
+        ⌁ <span>Peel-chain Detection</span>
+      </button>
+
+      <button data-section="cross">
+        ⇄ <span>Cross-Chain Analysis</span>
+      </button>
+
+      <button data-section="ai">
+        ◈ <span>AI Assistant (Voice)</span>
+      </button>
+
+      <button data-section="reports">
+        ▣ <span>Reports & Export</span>
+      </button>
+
+      <button data-section="sahyog">
+        ➤ <span>SAHYOG Integration</span>
+      </button>
+
+      <button data-section="cases">
+        ▤ <span>Case Management</span>
+      </button>
+
+      <button data-section="audit">
+        ◷ <span>Audit Logs</span>
+      </button>
+
+      <button data-section="settings">
+        ⚙ <span>Settings</span>
+      </button>
+
+    </nav>
+
+  </aside>
+
+
+  <main>
+
+
+    <!-- ===================================================== -->
+    <!-- NEW INVESTIGATION -->
+    <!-- ===================================================== -->
+
+    <section id="new" class="section" style="display:none;">
+
+      <div class="casebar">
+
+        <div>
+          <b>New Investigation</b>
+          <small>Start a blockchain wallet investigation</small>
+        </div>
+
+      </div>
+
+
+      <div class="panel investigation-form">
+
+        <h2>🔍 Start New Investigation</h2>
+
+        <p class="muted">
+          Enter the suspicious wallet address and investigation details.
+        </p>
+
+
+        <div class="form-grid">
+
+
+          <div class="form-group">
+
+            <label>Wallet Address</label>
+
+            <input
+              id="newWallet"
+              type="text"
+              placeholder="0x..."
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Blockchain</label>
+
+            <select id="newBlockchain">
+
+              <option value="Ethereum">
+                Ethereum
+              </option>
+
+              <option value="BNB Chain">
+                BNB Chain
+              </option>
+
+              <option value="Polygon">
+                Polygon
+              </option>
+
+              <option value="Bitcoin">
+                Bitcoin
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Case Type</label>
+
+            <select id="newCaseType">
+
+              <option>Fraud</option>
+              <option>Ransomware</option>
+              <option>Money Laundering</option>
+              <option>Investment Scam</option>
+              <option>Darknet Activity</option>
+              <option>Other</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Priority</label>
+
+            <select id="newPriority">
+
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+
+            </select>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>Investigation Notes</label>
+
+          <textarea
+            id="newNotes"
+            rows="5"
+            placeholder="Enter investigation notes..."
+          ></textarea>
+
+        </div>
+
+
+        <button
+          class="primary"
+          onclick="startInvestigation()"
+        >
+          🔍 Start Investigation
+        </button>
+
+
+        <div id="investigationResult"></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- HEADER -->
+    <!-- ===================================================== -->
+
+    <header class="top">
+
+      <div class="gov">
+        ✦
+      </div>
+
+      <div class="title">
+        <b>CryptoTrace India</b>
+        <small>
+          Blockchain Intelligence & VASP Attribution Platform
+        </small>
+      </div>
+
+      <div class="sahyog">
+        <b>SAHYOG</b>
+        <small>Integrated with Government of India</small>
+      </div>
+
+      <div class="stats">
+
+        <div>
+          <b>128</b>
+          <small>Active Cases</small>
+        </div>
+
+        <div>
+          <b>24</b>
+          <small>Under Analysis</small>
+        </div>
+
+        <div>
+          <b>17</b>
+          <small>VASP Identified</small>
+        </div>
+
+        <div>
+          <b>6</b>
+          <small>Cross-Chain Traces</small>
+        </div>
+
+      </div>
+
+      <div class="investigator">
+        ● Investigator
+        <br>
+        <small>LEA · Cyber Cell</small>
+      </div>
+
+    </header>
+
+
+
+    <!-- ===================================================== -->
+    <!-- DASHBOARD -->
+    <!-- ===================================================== -->
+
+    <section id="dashboard" class="section">
+
+
+      <!-- CASE BAR -->
+
+      <div class="casebar">
+
+        <div>
+
+          <b>
+            ▣ Case ID:
+            <span data-case-id>
+              LEA-2025-00124
+            </span>
+          </b>
+
+          <span class="pill green">
+            ● Active
+          </span>
+
+          <small>
+            Created on: 12 Nov 2025, 10:24 AM
+            |
+            Investigating Officer: Inspector Arjun Rao
+            |
+            Agency: State Cyber Cell
+          </small>
+
+        </div>
+
+        <button
+          class="primary"
+          onclick="submitSahyog()"
+        >
+          ➤ Submit to SAHYOG
+        </button>
+
+      </div>
+
+
+
+      <!-- SUMMARY CARDS -->
+
+      <div class="cards">
+
+        <div>
+          <small>Suspect Wallet</small>
+          <b data-wallet>
+            0x3aF2...9cD1
+          </b>
+        </div>
+
+
+        <div>
+          <small>Blockchain</small>
+          <b>
+            ◆
+            <span data-blockchain>
+              Ethereum
+            </span>
+          </b>
+        </div>
+
+
+        <div>
+          <small>Total Transactions</small>
+          <b>
+            483
+          </b>
+        </div>
+
+
+        <div>
+          <small>Total Volume</small>
+          <b>
+            $2.4M
+            <small>≈ ₹19.8 Cr</small>
+          </b>
+        </div>
+
+
+        <div>
+          <small>Identified VASP</small>
+
+          <b>
+
+            <span data-vasp>
+              Binance
+            </span>
+
+            <em>
+              (
+              <span data-vasp-score>
+                94%
+              </span>
+              )
+            </em>
+
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <small>Risk Level</small>
+
+          <b
+            class="red"
+            data-risk
+          >
+            ⚠ High
+          </b>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PIPELINE -->
+
+      <div class="pipeline">
+
+        <div>
+          <b>1</b>
+          Data Ingestion
+          <em>Completed</em>
+        </div>
+
+        <div>
+          <b>2</b>
+          Graph Analysis
+          <em>Completed</em>
+        </div>
+
+        <div>
+          <b>3</b>
+          VASP Attribution
+          <em>Completed</em>
+        </div>
+
+        <div>
+          <b>4</b>
+          Risk & Anomaly
+          <em>Completed</em>
+        </div>
+
+        <div class="current">
+          <b>5</b>
+          Report Generation
+          <em>In Progress</em>
+        </div>
+
+      </div>
+
+
+
+      <!-- ===================================================== -->
+      <!-- MAIN GRID -->
+      <!-- ===================================================== -->
+
+      <div class="grid3">
+
+
+        <!-- TRANSACTION GRAPH -->
+
+        <div class="panel graphpanel">
+
+          <div class="panelhead">
+
+            <b>
+              Transaction Graph & Fund Flow
+            </b>
+
+            <div>
+
+              <select>
+                <option>
+                  All Blockchains
+                </option>
+              </select>
+
+              <select>
+                <option>
+                  All Entities
+                </option>
+              </select>
+
+              <select>
+                <option>
+                  Layout: Hierarchical
+                </option>
+              </select>
+
+              <button onclick="fitGraph()">
+                Fullscreen
+              </button>
+
+            </div>
+
+          </div>
+
+          <div id="graph"></div>
+
+        </div>
+
+
+
+        <!-- VASP -->
+
+        <div class="panel vasp">
+
+          <h3>
+            VASP Attribution Result
+          </h3>
+
+          <div class="heroVasp">
+
+            ◆
+
+            <b data-vasp>
+              Binance
+            </b>
+
+            <strong data-vasp-score>
+              94%
+            </strong>
+
+            Relevance
+
+          </div>
+
+
+          <h4>
+            Evidence Factors
+          </h4>
+
+          <div id="factors"></div>
+
+
+          <p class="note">
+            Investigative lead — requires investigator verification.
+          </p>
+
+
+          <hr>
+
+
+          <h4>
+            VASP Details
+          </h4>
+
+          <p>
+            Name: Binance
+            <br>
+            Type: Centralized Exchange
+            <br>
+            Jurisdiction: Demo jurisdiction
+            <br>
+            Entity: Demo entity
+            <br>
+            Category: Global VASP
+          </p>
+
+        </div>
+
+
+
+        <!-- AI ASSISTANT -->
+
+        <div class="panel assistant">
+
+          <h3>
+
+            AI Investigation Assistant
+
+            <span id="voiceStatus">
+              ● Voice Ready
+            </span>
+
+          </h3>
+
+
+          <div
+            id="chat"
+            class="chat"
+          >
+
+            <div class="bubble">
+
+              Hi! I can help you investigate this case.
+
+              <br>
+              <br>
+
+              Try:
+
+              <br>
+
+              • Which VASP is most relevant?
+
+              <br>
+
+              • Show transaction path.
+
+              <br>
+
+              • Is there any mixer involved?
+
+              <br>
+
+              • Show cross-chain movements.
+
+            </div>
+
+          </div>
+
+
+
+          <!-- QUICK QUESTIONS -->
+
+          <div class="quick">
+
+            <button
+              onclick="ask('Which VASP is most relevant?')"
+            >
+              Why this VASP?
+            </button>
+
+            <button
+              onclick="ask('Show the risk indicators')"
+            >
+              Risk
+            </button>
+
+            <button
+              onclick="ask('Show cross-chain movements')"
+            >
+              Cross-chain
+            </button>
+
+          </div>
+
+
+
+          <!-- VOICE CONTROLS -->
+
+          <div
+            class="voiceControls"
+            style="
+              display:flex;
+              gap:8px;
+              margin:8px 0;
+              align-items:center;
+            "
+          >
+
+            <button
+              id="micBtn"
+              onclick="startVoice()"
+              title="Speak your question"
+              style="
+                width:44px;
+                height:38px;
+                border-radius:8px;
+                cursor:pointer;
+                font-size:18px;
+              "
+            >
+              🎤
+            </button>
+
+
+            <button
+              onclick="stopVoice()"
+              title="Stop listening"
+              style="
+                width:44px;
+                height:38px;
+                border-radius:8px;
+                cursor:pointer;
+                font-size:16px;
+              "
+            >
+              ⏹
+            </button>
+
+
+            <button
+              onclick="stopSpeaking()"
+              title="Stop AI voice"
+              style="
+                width:44px;
+                height:38px;
+                border-radius:8px;
+                cursor:pointer;
+                font-size:16px;
+              "
+            >
+              🔇
+            </button>
+
+
+            <small
+              id="voiceText"
+              class="muted"
+            >
+              Click 🎤 and speak
+            </small>
+
+          </div>
+
+
+
+          <!-- TEXT QUESTION -->
+
+          <div class="ask">
+
+            <input
+              id="q"
+              placeholder="Ask anything about this case..."
+              onkeydown="
+                if(event.key==='Enter'){
+                  ask();
+                }
+              "
+            >
+
+            <button
+              onclick="ask()"
+            >
+              ➤
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ===================================================== -->
+      <!-- LOWER SECTION -->
+      <!-- ===================================================== -->
+
+      <div class="lower">
+
+
+        <!-- TRANSACTION TIMELINE -->
+
+        <div class="panel">
+
+          <h3>
+            Transaction Timeline
+          </h3>
+
+          <div class="tablewrap">
+
+            <table>
+
+              <thead>
+
+                <tr>
+                  <th>Date & Time</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                </tr>
+
+              </thead>
+
+              <tbody id="tx"></tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- INSIGHTS -->
+
+        <div class="panel insights">
+
+          <h3>
+            Analyses & Insights
+          </h3>
+
+          <div class="tabs">
+
+            <button
+              class="sel"
+              onclick="tab('risk',this)"
+            >
+              Risk Analysis
+            </button>
+
+            <button
+              onclick="tab('peel',this)"
+            >
+              Peel-chain
+            </button>
+
+            <button
+              onclick="tab('cross',this)"
+            >
+              Cross-Chain
+            </button>
+
+            <button
+              onclick="tab('ml',this)"
+            >
+              ML Anomalies
+            </button>
+
+          </div>
+
+          <div id="insight"></div>
+
+        </div>
+
+
+
+        <!-- FUND FLOW -->
+
+        <div class="panel">
+
+          <h3>
+            Fund Flow by Entity Type
+          </h3>
+
+          <div
+            class="donut"
+            style="--p:42"
+          >
+            <span>
+              42%
+            </span>
+          </div>
+
+          <div class="legend">
+
+            ● VASP / Exchange 42%
+            <br>
+
+            ● Intermediary 28%
+            <br>
+
+            ● Mixer / Tumbler 14%
+            <br>
+
+            ● DeFi / DEX 10%
+            <br>
+
+            ● Others 2%
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ===================================================== -->
+      <!-- BOTTOM ANALYSIS -->
+      <!-- ===================================================== -->
+
+      <div class="bottom">
+
+
+        <!-- PEEL CHAIN -->
+
+        <div class="panel">
+
+          <h3>
+            Peel-chain / Structuring Detection
+          </h3>
+
+          <div class="peelvis">
+            ● → ● → ● → ● → ● → ●
+          </div>
+
+          <b data-peel-chain>
+            3 levels detected
+          </b>
+
+          <p class="muted">
+            Peel-chain pattern + structuring indicator
+          </p>
+
+          <button onclick="tab('peel')">
+            View Details →
+          </button>
+
+        </div>
+
+
+
+        <!-- ML -->
+
+        <div class="panel">
+
+          <h3>
+            ML Based Anomaly Detection
+          </h3>
+
+          <div class="score">
+
+            <b data-ml-score>
+              0.87
+            </b>
+
+            <small>
+              / 1.0
+            </small>
+
+          </div>
+
+          <div class="meter">
+            <i style="width:87%"></i>
+          </div>
+
+          <p>
+
+            ● Unusual transaction frequency
+            <br>
+
+            ● Interaction with high-risk entities
+            <br>
+
+            ● Structuring pattern
+            <span data-structuring>
+              detected
+            </span>
+
+          </p>
+
+          <button onclick="tab('ml')">
+            View ML Analysis →
+          </button>
+
+        </div>
+
+
+
+        <!-- EVIDENCE -->
+
+        <div class="panel">
+
+          <h3>
+            Cryptographic Evidence Verification
+          </h3>
+
+          <p>
+            Report Hash (SHA-256)
+          </p>
+
+          <code id="hash">
+            loading...
+          </code>
+
+          <span class="verified">
+            ✓ Verified
+          </span>
+
+          <p class="muted">
+            This report is tamper-evident and can be verified.
+          </p>
+
+          <button onclick="verifyHash()">
+            Verify →
+          </button>
+
+        </div>
+
+
+
+        <!-- EXPORT -->
+
+        <div class="panel">
+
+          <h3>
+            Download / Export
+          </h3>
+
+          <button onclick="downloadJSON()">
+            Download JSON
+          </button>
+
+          <button onclick="downloadCSV()">
+            Export CSV
+          </button>
+
+          <button onclick="createReport()">
+            Generate Report
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div id="toast"></div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<script src="/frontend/app.js"></script>
+
+</body>
+
+</html>
